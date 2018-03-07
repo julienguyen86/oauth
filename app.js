@@ -1,15 +1,15 @@
-const express = require('express');
-const authRoutes = require('./routes/auth-routes');
-const passportSetup = require('./config/passport-setup');
+var express = require('express');
+var authRoutes = require('./routes/auth-routes');
+var db = require("./models");
 
-var db = require('./models');
+var passportSetup = require('./config/passport-setup');
 
-const app = express();
+
+var app = express();
 
 
 // set up view engine
 app.set('view engine', 'ejs');
-
 
 // set up routes
 app.use('/auth', authRoutes);
@@ -19,8 +19,8 @@ app.get('/', (req, res) => {
 res.render('home');
 });
 
-db.sequelize.sync({force: true}).then(function(){
+db.sequelize.sync({force: true}).then(function() {
 app.listen(3000,() => {
-	console.log('app now listending for requests on port 3000')
+	console.log('app now listening for requests on port 3000')
 });
 });

@@ -1,26 +1,26 @@
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20');
-const keys = require('./keys');
-const User = require('../models/user-model.js');
+var passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth20');
+var keys = require('./keys');
+var db = require("../models");
 
 passport.use(
 	new GoogleStrategy({
-// options for the google strat
-callbackURL: '/auth/google/redirect',
-clientID: keys.google.clientID,
-clientSecret: keys.google.clientSecret
+	// options for the google strat
+	callbackURL: '/auth/google/redirect',
+	clientID: keys.google.clientID,
+	clientSecret: keys.google.clientSecret
 }, (accessToken, refreshToken, profile, done) => {
-
 	// passport callback function
 	console.log('passport callback function fired');
-	// var newProfile = JSON.parse(profile)
+	console.log(profile);
 	console.log(profile.displayName);
-	console.log("HEEEEEEEEEERRRRRRRRREEEEEEEE")
-	new User({
-		username: profile.displayName,
+	console.log(profile.id);
+
+	db.User.create({
+		name: profile.displayName,
 		googleId: profile.id
-	}).then(function(User) {
-		console.log("new user created: " + User);
+	}).then(function(response) {
+		console.log(response);
 	})
 })
 

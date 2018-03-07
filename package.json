@@ -11,9 +11,19 @@
   "dependencies": {
     "ejs": "^2.5.7",
     "express": "^4.16.2",
+    "mysql": "^2.15.0",
     "mysql2": "^1.5.2",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
     "sequelize": "^4.35.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julienguyen86/oauth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/julienguyen86/oauth/issues"
+  },
+  "homepage": "https://github.com/julienguyen86/oauth#readme"
 }

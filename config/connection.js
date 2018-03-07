@@ -6,11 +6,11 @@ if(process.env.JASWDB_URL){
 	connection = mysql.createConnection(process.env.JAWSDB_URL);
 
 } else {
-	 var connection = mysql.createConnection({
+	connection = mysql.createConnection({
 		port: 3306,
 		host: "localhost",
 		user: "root",
-		password: "",
+		password: "CMMAnum_1",
 		database: "users_db",
 		dialect: "mysql"
 	});
